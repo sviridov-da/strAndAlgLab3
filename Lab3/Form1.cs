@@ -47,7 +47,10 @@ namespace Lab3
 
             DominoTable dominoTable = new DominoTable(matrix, n);
             bool result = dominoTable.Cover();
-            MessageBox.Show(result.ToString());
+            if(result)
+                MessageBox.Show("Можно замостить комплектом домино");
+            else
+                MessageBox.Show("Нельзя замостить комплектом домино");
         }
     }
 }
