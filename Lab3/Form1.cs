@@ -38,7 +38,13 @@ namespace Lab3
 
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < n; j++)
-                    matrix[i][j] = int.Parse(dataGridView1[j,i].Value.ToString());
+                {
+                    if (dataGridView1[j, i] == null)
+                        matrix[i][j] = 0;
+                    else
+                        matrix[i][j] = dataGridView1[j, i].Value == null?0:int.Parse(dataGridView1[j,i].Value.ToString());
+                }
+
             DominoTable dominoTable = new DominoTable(matrix, n);
             bool result = dominoTable.Cover();
             MessageBox.Show(result.ToString());
